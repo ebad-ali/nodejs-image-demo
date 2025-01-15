@@ -5,6 +5,9 @@ services:
     image: nodejs-demo-image:latest
     deploy:
       replicas: 2
+      placement:
+        constraints:
+          - node.labels.role == webserver-two
       update_config:
         parallelism: 1
         delay: 10s
